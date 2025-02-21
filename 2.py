@@ -66,7 +66,6 @@ if "Asan" in x:
 x.append("Eldos")
 #Чтобы вставить элемент списка по указанному индексу, используйте метод: insert()
 #4тобы добавить элементы из другого списка к текущему списку, используйте метод.extend()
-x.extend()
 #Метод удаляет указанный элемент.remove():
 x.remove("Zharas")
 #Метод удаляет указанные индекс.pop(): Если индекс не указан, метод удаляет последний элемент.
@@ -175,3 +174,132 @@ class Person:
         print(self.name, self.age)
 x = Person("Zharas", 18)
 x.printname()
+
+#1:
+import datetime
+print(datetime.datetime(2025, 2, 20, 9, 2, 48))
+
+data = datetime.datetime.today() - datetime.timedelta(days = 1)
+print(data)
+
+#Сравниваем
+d = datetime.date.today()
+next_week = d + datetime.timedelta(days = 7)
+print(d > next_week)
+
+now = datetime.date(2025, 2, 20)
+t = now - datetime.timedelta(days = 3)
+print(t < now)
+
+# для вычитания пяти дней из текущей даты:
+d1 = datetime.date.today() - datetime.timedelta(days = 5)
+print(d1)
+
+#чтобы печатать вчера, сегодня, завтра:
+y = datetime.date.today() - datetime.timedelta(days = 1)
+today = datetime.date.today()
+tomorrow = today + datetime.timedelta(days = 1)
+print(y)
+print(today)
+print(tomorrow)
+
+#Чтобы отбрасывать микросекунды от даты и времени:
+d2 = datetime.datetime.now()
+d3 = d2.replace(microsecond = 0)
+print(d2)
+print(d3)
+
+#для вычисления разницы в две даты за секунды:
+date = datetime.date.today()
+date2 = date + datetime.timedelta(days = 1)
+difference = (date2 - date).total_seconds()
+print(int(difference))
+
+
+#2:Math
+import math
+a = int(input("a = "))
+print(math.sqrt(a))
+a1 = float(input("a1 = "))
+print(math.pow(a1, 2))
+a2 = int(input())
+print(math.fabs(a2))
+a3 = int(input())
+print(math.factorial(a3))
+a4 = float(input())
+print(math.log2(a4))
+a5 = float(input())
+print(math.radians(a5))
+a6 = float(input())
+print(math.degrees(a6))
+
+#вычисления площади трапеции:
+def function(h,f,s):
+    return (f+s)/2 * h
+h = float(input())
+f = float(input())
+s =float(input())
+My = function(h,f,s)
+print((My))
+
+#вычисления площади правильного многоугольника:
+def area(n,s):
+    return (n * s ** 2) / (4 * math.tan(math.pi / n))
+n = float(input())
+s = float(input())
+my2 = area(n,s)
+print(int(my2))
+
+#для вычисления площади параллелограмма:
+def area2(l,h):
+    return l*h
+l = int(input())
+h = int(input())
+my3 = area2(l,h)
+print(my3)
+
+#Iterator:
+i = [4,3,2,5,6,78]
+it = iter(i)
+(next(it))
+(next(it))
+(next(it))
+(next(it))
+(next(it))
+(next(it))
+
+#3: который генерирует квадраты чисел с точностью до некоторого числа N:
+def generator(n,a):
+    for i in range(1, n+1):
+        yield round(i ** 2, a)
+g = generator(int(input()), 2)
+for x in g:
+    print(x)
+    
+def gener(n):
+    for i in range(1, n, 3):
+        yield i
+g1 = int(input("g1 = "))
+print(",".join(map(str,gener(g1))))
+
+def generator3(n):
+    for i in range(0, n+1, 12):
+        yield i
+n = int(input("n = "))
+print(",".join(map(str, generator3(n))))       
+
+def generator4(a, b):
+    for i in range(a,b+1):
+        yield i ** 2
+a = int(input())
+b = int(input())
+for x in generator4(a, b):
+    print(x)
+
+def generator5(n):
+    for i in range(n, -1, -1):
+        yield i
+n = int(input())
+for x in generator5(n):
+    print(x)
+    
