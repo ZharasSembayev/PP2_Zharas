@@ -25,3 +25,17 @@ for item in interfaces:
     speed = attributes.get("speed", "N/A")
     mtu = attributes.get("mtu", "N/A")
     print(f"{dn:<50}{description:<20}{speed:<10}{mtu:<6}")
+
+import json
+
+data = {
+    "name": "Жарас",
+    "age": 22,
+    "city": "Алматы",
+    "languages": ["Python", "C++", "JavaScript"]
+}
+
+with open("data.json", "w", encoding="utf-8") as file:
+    json.dump(data, file, ensure_ascii=False, indent=4)
+
+print()
