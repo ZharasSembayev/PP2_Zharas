@@ -26,6 +26,7 @@ pygame.display.set_caption("Car game")
 SPEED = 5
 SCORE = 0 
 COINS_COLLECTED = 0
+lives = 3
 clock = pygame.time.Clock()  
 
 
@@ -132,15 +133,21 @@ while running:
     
     coins_text = font_small.render(f"Coins: {COINS_COLLECTED}", True, BLACK)
     screen.blit(coins_text, (WIDTH - 100, 10))  
+    lives_text = font_small.render(f"LIVES: {lives}", True, "black")
+    screen.blit(lives_text, (WIDTH // 2 - 100, 10))
 
     
     if pygame.sprite.spritecollideany(P1, enemies):
-        screen.fill(RED)
-        screen.blit(game_over, (WIDTH//2 - 170, HEIGHT//2 - 30))  
-        pygame.display.update()
-        time.sleep(2)
-        running = False
-
+        lives -= 1
+        if lives == -1:
+            screen.fill(RED)
+            screen.blit(game_over, (WIDTH//2 - 170, HEIGHT//2 - 30))  
+            pygame.display.update()
+            time.sleep(2)
+            running = False
+        else:
+            P1.rect.center = (WIDTH // 2, HEIGHT - 20)
+            time.sleep(1)
     pygame.display.update()
     FPS = 60
     clock.tick(FPS)

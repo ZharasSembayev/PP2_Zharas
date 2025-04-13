@@ -1,4 +1,5 @@
-import pygame
+import pygame #type: ignore
+import random
 
 pygame.init()
 
@@ -23,7 +24,7 @@ CYAN = (0, 255, 255)
 
 
 colors = [BLACK, RED, BLUE, GREEN, YELLOW, PURPLE, ORANGE, CYAN]
-color = BLACK 
+color = random.randint(0, )
 
 drawing = False 
 start_pos = None 
@@ -51,7 +52,9 @@ while running:
 
             if pygame.K_1 <= event.key <= pygame.K_8:
                 color = colors[event.key - pygame.K_1]
-
+            
+            if event.key == pygame.K_TAB:
+                
             
             if event.key == pygame.K_DOWN and radius > 3:
                 radius -= 2

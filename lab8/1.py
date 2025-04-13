@@ -1,5 +1,5 @@
-import pygame, sys
-from pygame.locals import *
+import pygame, sys #type: ignore
+from pygame.locals import * #type: ignore
 import random, time
 
 pygame.init()
